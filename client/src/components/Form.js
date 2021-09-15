@@ -1,10 +1,10 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { EmployeeContext } from "../context/EmployeeContext";
 
 const MyForm = () => {
-  const { newEmployee, setNewEmployee } = useContext(EmployeeContext);
+  const { setNewEmployee } = useContext(EmployeeContext);
   const [formInputs, setFormInputs] = useState({});
   const [errors, setErrors] = useState({});
 

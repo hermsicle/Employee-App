@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { EmployeeSchema } = require("../model/");
+const { EmployeeSchema } = require("../model");
 
 // Get all the employees
 router.get("/employees", (req, res) => {
@@ -28,8 +28,7 @@ router.post("/employees", (req, res) => {
 
 // Update an employee
 router.put("/employees/:id", (req, res) => {
-  console.log(req.body);
-
+  // console.log(req.body);
   EmployeeSchema.findByIdAndUpdate({ _id: req.params.id }, req.body).then(
     () => {
       EmployeeSchema.updateOne({ _id: req.params.id })

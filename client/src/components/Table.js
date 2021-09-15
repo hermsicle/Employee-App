@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import { EmployeeContext } from "../context/EmployeeContext";
 import { Table } from "react-bootstrap";
 import TableRow from "./TableRow";
