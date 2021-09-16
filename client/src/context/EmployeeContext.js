@@ -29,7 +29,6 @@ const EmployeeContextProvider = ({ children }) => {
   useEffect(() => {
     getAllEmployees();
     setIsUpdated(false);
-    console.log("component rerenderd");
   }, [isUpdated]);
 
   useEffect(() => {
