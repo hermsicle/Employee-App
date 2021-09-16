@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 5000;
 const mongoose = require("mongoose");
-const MONGO_URI = "mongodb://localhost/crud";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/crud";
 const MONGO_OPTIONS = {};
 
 const connection = () => {
@@ -22,9 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 const apiRoutes = require("./routes/apiRoutes");
 app.use("/api", apiRoutes);
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   console.log("connected to server!");
