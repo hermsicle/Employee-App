@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/crud";
 const MONGO_OPTIONS = {};
